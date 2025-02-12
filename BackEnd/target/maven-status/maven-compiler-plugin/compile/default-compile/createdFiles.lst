@@ -1,0 +1,4 @@
+com/chris/spring/data/mongodb/Application.class
+com/chris/spring/data/mongodb/model/Tutorial.class
+com/chris/spring/data/mongodb/repository/TutorialRepository.class
+com/chris/spring/data/mongodb/controller/TutorialController.class
