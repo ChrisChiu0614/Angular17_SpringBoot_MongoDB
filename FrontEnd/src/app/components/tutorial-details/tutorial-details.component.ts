@@ -87,13 +87,15 @@ export class TutorialDetailsComponent implements OnInit{
 
   deleteTutorial():void{
     this.message = '';
-    this.tutorialService.dalete(this.currentTutorial.id)
+    console.log(this.currentTutorial.id);
+    this.tutorialService.delete(this.currentTutorial.id)
     .subscribe({
       next: (res)=>{
         console.log(res);
         this.router.navigate(['/tutorials']);
       },
       error:(e)=>{
+        console.log('fail');
         console.log(e);
       }
 

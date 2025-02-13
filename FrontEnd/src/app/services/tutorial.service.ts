@@ -18,7 +18,7 @@ export class TutorialService {
   }
 
   get(id: any): Observable<Tutorial>{
-    return this.http.get('${baseUrl}/${id}');
+    return this.http.get(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any>{
@@ -26,11 +26,11 @@ export class TutorialService {
   }
 
   update(id: any, data: any): Observable<any>{
-    return this.http.put('${baseUrl}/${id}', data);
+    return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  dalete(id: any): Observable<any>{
-    return this.http.delete('${baseUrl}/${id}');
+  delete(id: any): Observable<any>{
+    return this.http.delete(`${baseUrl}/${id}`);
   }
 
   deleteAll(): Observable<any>{
@@ -38,6 +38,6 @@ export class TutorialService {
   }
 
   findByTitle(title: any): Observable<Tutorial[]>{
-    return this.http.get<Tutorial[]>('${baseUrl}?title=${title}');
+    return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
   }
 }

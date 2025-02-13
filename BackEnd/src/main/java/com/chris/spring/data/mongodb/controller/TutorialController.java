@@ -83,7 +83,7 @@ public class TutorialController {
         }
     }
 
-    @DeleteMapping("/tutorial/{id}")
+    @DeleteMapping("/tutorials/{id}")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id){
         try {
             Optional<Tutorial> tutorialData = tutorialRepository.findById(id);

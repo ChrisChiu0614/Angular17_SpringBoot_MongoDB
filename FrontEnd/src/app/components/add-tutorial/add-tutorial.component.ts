@@ -21,7 +21,7 @@ export class AddTutorialComponent {
 
   saveTutorial(): void{
     const data = {
-      Title: this.tutorial.title,
+      title: this.tutorial.title,
       description: this.tutorial.description
     };
 

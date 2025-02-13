@@ -63,7 +63,7 @@ export class TutorialsListComponent implements OnInit{
   searchTitle():void{
     this.currentTutorial = {};
     this.currentIndex = -1;
-
+    console.log(this.title);
     this.tutorialService.findByTitle(this.title)
     .subscribe({
       next:(data)=>{
