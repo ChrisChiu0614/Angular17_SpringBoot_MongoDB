@@ -10,10 +10,15 @@ import { Tutorial } from '../../models/tutorial.model';
 })
 export class TutorialsListComponent implements OnInit{
 
-  tutorials?: Tutorial[];
+  tutorials: Tutorial[] = [];
   currentTutorial: Tutorial = {};
   currentIndex = -1;
   title = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3,6,9];
 
   constructor(private tutorialService: TutorialService){}
 
@@ -21,18 +26,47 @@ export class TutorialsListComponent implements OnInit{
     return this.retrieveTutorials();
   }
 
+  getRequestParams(searchTitle: string, page: number, pageSize: number):any{
+    let params:any = {};
+    if(searchTitle){
+      params[`title`] = searchTitle;
+    }
+    if(page){
+      params[`page`] = page-1;
+    }
+    if(pageSize){
+      params[`pageSize`] = pageSize;
+    }
+    return params;
+  }
+
   retrieveTutorials():void{
-    this.tutorialService.getAll()
+    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+
+    this.tutorialService.getAll(params)
     .subscribe({
-      next:(data)=>{
-        this.tutorials = data;
-        console.log(data);
+      next:(response)=>{
+        const {tutorials, totalItems} = response;
+        this.tutorials = tutorials;
+        this.count = totalItems;
+        console.log(response);
       },
       error:(e)=>{
         console.log(e);
       }
 
     });
+  }
+
+  handlePageChange(event: number): void{
+    this.page = event;
+    this.retrieveTutorials();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveTutorials();
   }
 
   refreshList():void{
@@ -60,20 +94,10 @@ export class TutorialsListComponent implements OnInit{
     });
   }
 
-  searchTitle():void{
-    this.currentTutorial = {};
-    this.currentIndex = -1;
-    console.log(this.title);
-    this.tutorialService.findByTitle(this.title)
-    .subscribe({
-      next:(data)=>{
-        this.tutorials = data;
-        console.log(data);
-      },
-      error:(e)=>{
-        console.log(e);
-      }
-    });
+  searchTitle(): void {
+    this.page = 1;
+    this.retrieveTutorials();
   }
+
 
 }

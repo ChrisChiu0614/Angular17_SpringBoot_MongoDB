@@ -60,7 +60,7 @@ export class TutorialDetailsComponent implements OnInit{
       next: (res) =>{
         console.log(res);
         this.currentTutorial.published = status;
-        this.message = res.message? res.message: 'The status was updated successfully!';
+        //this.message = res.message? res.message: 'The status was updated successfully!';
       },
       error: (e)=>{
         console.log(e);
@@ -76,7 +76,7 @@ export class TutorialDetailsComponent implements OnInit{
     .subscribe({
       next: (res) =>{
         console.log(res);
-        this.message = res.message? res.message : 'This tutorial was updated successfully!';
+        //this.message = res.message? res.message : 'This tutorial was updated successfully!';
       },
       error:(e)=>{
         console.log(e);
