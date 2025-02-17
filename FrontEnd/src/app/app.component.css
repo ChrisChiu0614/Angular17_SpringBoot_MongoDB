@@ -1,0 +1,7 @@
+h1 {
+    text-align: center;  /* 文字置中 */
+    color: #2C3E50;     /* 深藍色，專業且易讀 */
+    font-size: 2.5rem;  /* 適中大小，可根據需求調整 */
+    font-weight: bold;  /* 加粗，提高標題辨識度 */
+    margin-top: 20px;   /* 增加上邊距，保持頁面美觀 */
+}

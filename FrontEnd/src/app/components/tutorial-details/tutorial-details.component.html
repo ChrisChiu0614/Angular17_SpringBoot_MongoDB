@@ -16,6 +16,12 @@
     <a class="badge badge-warning" routerLink="/tutorials/{{ currentTutorial.id }}">
       Edit
     </a>
+    
+    @if(currentTutorial.html){
+      <a [href]="currentTutorial.html" class="badge badge-danger d-inline-block mx-2" target="_blank"> 
+        Link 
+      </a>
+    }
     } @else {<p>Please click on a Tutorial...</p>}
   } @else {
     @if (currentTutorial.id) {
@@ -40,6 +46,16 @@
             id="description"
             [(ngModel)]="currentTutorial.description"
             name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="html">Html</label>
+          <input
+            type="text"
+            class="form-control"
+            id="html"
+            [(ngModel)]="currentTutorial.html"
+            name="html"
           />
         </div>
   

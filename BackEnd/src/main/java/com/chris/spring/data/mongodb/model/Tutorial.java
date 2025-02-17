@@ -15,11 +15,17 @@ public class Tutorial {
     private String title;
     private String description;
     private boolean published;
+    private String html;
 
-    public Tutorial(String title, String description, boolean published) {
+    public Tutorial(String title, String description, boolean published, String html) {
         this.title = title;
         this.description = description;
         this.published = published;
+        this.html = html;
+    }
+
+    public String getHtml() {
+        return html;
     }
 
     public String getId() {
@@ -52,5 +58,20 @@ public class Tutorial {
 
     public void setPublished(boolean published) {
         this.published = published;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
+    }
+
+    @Override
+    public String toString() {
+        return "Tutorial{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", published=" + published +
+                ", html='" + html + '\'' +
+                '}';
     }
 }

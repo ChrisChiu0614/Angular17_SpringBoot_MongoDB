@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'this my first angular-17-crud';
+  title = 'Tutorial Website Management System';
 }

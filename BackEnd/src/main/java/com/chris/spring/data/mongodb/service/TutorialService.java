@@ -25,7 +25,7 @@ public class TutorialService {
     }
 
     public Tutorial createTutorial(Tutorial tutorial){
-        return tutorialRepository.save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+        return tutorialRepository.save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false, tutorial.getHtml()));
     }
 
     public Tutorial updateTutorial(String id, Tutorial tutorial){
@@ -34,6 +34,7 @@ public class TutorialService {
                     existingTutorial.setTitle(tutorial.getTitle());
                     existingTutorial.setDescription(tutorial.getDescription());
                     existingTutorial.setPublished(tutorial.isPublished());
+                    existingTutorial.setHtml(tutorial.getHtml());
                     return tutorialRepository.save(existingTutorial);
                 }).orElseGet(()->null);
     }
